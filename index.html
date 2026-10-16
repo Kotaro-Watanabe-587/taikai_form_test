@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>参加申込書｜第◯回 ◯◯卓球大会</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="f">
+  <h1 class="title">第◯回 ◯◯卓球大会 参加申込書</h1>
+  <p class="deadline">申込締切 ◯月◯日（◯）</p>
+
+  <section class="sec">
+    <h2 class="st">クラブ情報</h2>
+    <div class="row"><label class="lb" for="club">クラブ名<span class="req">必須</span></label><input type="text" id="club" name="club" placeholder="北区卓球クラブ"></div>
+    <div class="row"><label class="lb" for="rep">代表者名<span class="req">必須</span></label><input type="text" id="rep" name="rep" placeholder="北区 太郎"></div>
+    <div class="row"><label class="lb" for="addr">住所</label><input type="text" id="addr" name="addr" placeholder="〒114-0000 東京都北区◯◯ 1-2-3"></div>
+    <div class="row"><label class="lb" for="tel">TEL</label><input type="tel" id="tel" name="tel" placeholder="03-0000-0000"></div>
+  </section>
+
+  <section class="sec">
+    <h2 class="st">参加チーム</h2>
+    <div id="teams">
+      <div class="team">
+        <div class="th"><span class="tn">チーム 1</span><span class="req tag">必須</span><span class="bd">未選択</span></div>
+        <div class="nm">
+          <span class="lb small">フリガナ</span><input type="text" class="kana" placeholder="キタクエー" aria-label="チーム名のフリガナ">
+          <span class="lb">チーム名<span class="req">必須</span></span><input type="text" class="name" placeholder="北区A" aria-label="チーム名">
+        </div>
+        <div class="rk">
+          <span class="lb">ランク<span class="req">必須</span></span>
+          <span class="rg">
+            <label><input type="radio" class="rl" name="r1"> 東京リーグ</label>
+            <select class="lg" aria-label="東京リーグの部">
+              <option value="">選択</option><option>1部</option><option>2部</option><option>3部</option><option>4部</option><option>5部</option><option>6部</option><option>7部</option>
+            </select>
+          </span>
+          <span class="rg">
+            <label><input type="radio" class="rn" name="r1"> 非加盟 →</label>
+            <label><input type="radio" class="lv" name="l1" value="上"> 上</label>
+            <label><input type="radio" class="lv" name="l1" value="中"> 中</label>
+            <label><input type="radio" class="lv" name="l1" value="下"> 下</label>
+          </span>
+        </div>
+        <div class="tw">
+          <table class="pt">
+            <colgroup><col style="width:32px"><col><col style="width:64px"><col style="width:92px"><col style="width:76px"><col style="width:100px"></colgroup>
+            <thead><tr><th>No.</th><th>氏名</th><th>性別</th><th>加盟区分</th><th>カットマン</th><th>北区在住/在勤</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <button type="button" id="add" class="btn">＋ チームを追加</button>
+    <p class="note">2チーム以上出場する場合は「チームを追加」から入力してください。非加盟チームは上・中・下のいずれかを必ず記入してください。カットマン・北区在住/在勤は該当者のみ印をつけてください。</p>
+  </section>
+
+  <section class="sec">
+    <h2 class="st">参加費（チーム単位）</h2>
+    <div class="tw">
+      <table class="fee">
+        <colgroup><col><col style="width:110px"><col style="width:90px"><col style="width:120px"></colgroup>
+        <thead><tr><th class="l">区分</th><th>1チーム（円）</th><th>チーム数</th><th>小計</th></tr></thead>
+        <tbody>
+          <tr><td class="l">全員加盟チーム</td><td data-label="1チーム（円）"><input id="u1" type="number" min="0" step="1" placeholder="0" aria-label="全員加盟チームの参加費"></td><td id="n1" data-label="チーム数">0</td><td id="s1" data-label="小計">0 円</td></tr>
+          <tr><td class="l">非加盟者を含むチーム</td><td data-label="1チーム（円）"><input id="u2" type="number" min="0" step="1" placeholder="0" aria-label="非加盟者を含むチームの参加費"></td><td id="n2" data-label="チーム数">0</td><td id="s2" data-label="小計">0 円</td></tr>
+          <tr class="total"><td colspan="3">合計</td><td id="tot">0 円</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p id="warn" class="note"></p>
+  </section>
+
+  <div class="send-area">
+    <button type="button" id="send">送信する</button>
+    <p id="msg" role="status"></p>
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
